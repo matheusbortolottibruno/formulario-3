@@ -1,26 +1,39 @@
 <?php
-include "conexao.php"; 
+include "../conexao.php";  
 
-// Consulta todos os registros da tabela
-$sql = "SELECT * FROM pessoas";
+// Recebe o ID via GET
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+// GET recebe
+
+// Consulta a pessoa pelo ID
+$sql = "SELECT * FROM pessoas WHERE id = $id";
 $resultado = $conn->query($sql);
+$pessoa = $resultado->fetch_assoc();
+
+if (!$pessoa) {
+    echo "Pessoa não encontrada.";
+    exit;
+}
 ?>
 
-<h2>Lista de Pessoas</h2>
-<a href="formulario.php">Cadastrar Nova Pessoa</a><br><br>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Detalhes da Pessoa</title>
+    <link rel="stylesheet" href="detalhe.css" />
+</head>
+<body>
 
-<table border="1" cellpadding="8">
-    <tr>
-        <th>ID</th><th>Nome</th><th>Email</th><th>Idade</th><th>Cidade</th><th>Ações</th>
-    </tr>
-    <?php while ($pessoa = $resultado->fetch_assoc()) { ?>
-        <tr>
-            <td><?= $pessoa['id'] ?></td>
-            <td><?= $pessoa['nome'] ?></td>
-            <td><?= $pessoa['email'] ?></td>
-            <td><?= $pessoa['idade'] ?></td>
-            <td><?= $pessoa['cidade'] ?></td>
-            <td><a href="detalhe.php?id=<?= $pessoa['id'] ?>">Ver Detalhes</a></td>
-        </tr>
-    <?php } ?>
-</table>
+   
+
+    <p><strong>ID:</strong> <?= htmlspecialchars($pessoa['id']) ?></p>
+    <p><strong>Nome:</strong> <?= htmlspecialchars($pessoa['nome']) ?></p>
+    <p><strong>Email:</strong> <?= htmlspecialchars($pessoa['email']) ?></p>
+    <p><strong>Idade:</strong> <?= htmlspecialchars($pessoa['idade']) ?></p>
+    <p><strong>Cidade:</strong> <?= htmlspecialchars($pessoa['cidade']) ?></p>
+
+    <a href="../lista.php">← Voltar para a lista</a>
+
+</body>
+</html>
