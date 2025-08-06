@@ -15,13 +15,11 @@ $resultado = $conn->query($sql);
 if ($resultado->num_rows == 0) {
     echo "Pessoa não encontrada.";
     exit;
-    
 }
 
 $pessoa = $resultado->fetch_assoc(); // dados da pessoa
 ?>
-<head>
-<link rel="stylesheet" href="detalhe.css">
+
 <h2>Detalhes da Pessoa</h2>
 <p><strong>ID:</strong> <?= $pessoa["id"] ?></p>
 <p><strong>Nome:</strong> <?= $pessoa["nome"] ?></p>
@@ -30,7 +28,3 @@ $pessoa = $resultado->fetch_assoc(); // dados da pessoa
 <p><strong>Cidade:</strong> <?= $pessoa["cidade"] ?></p>
 
 <a href="index.php">Voltar para a lista</a>
-</head>
-
-
-

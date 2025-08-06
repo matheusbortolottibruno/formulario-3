@@ -1,8 +1,6 @@
 <?php
 include "conexao.php"; 
 
-//cadastrar direto na tela
-
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST["nome"];
