@@ -14,15 +14,17 @@ $resultado = $conn->query($sql);
         <th>ID</th><th>Nome</th><th>Email</th><th>Idade</th><th>Cidade</th><th>Ações</th>
     </tr>
     <?php while ($pessoa = $resultado->fetch_assoc()) { ?>
-        
         <tr>
             <td><?= $pessoa['id'] ?></td>
             <td><?= $pessoa['nome'] ?></td>
             <td><?= $pessoa['email'] ?></td>
             <td><?= $pessoa['idade'] ?></td>
             <td><?= $pessoa['cidade'] ?></td>
-            <td><a href="detalhe.php?id=<?= $pessoa['id'] ?>">Ver Detalhes</a></td>
-            
+            <td>
+                <a href="detalhe.php?id=<?= $pessoa['id'] ?>">Ver</a> |
+                <a href="editar.php?id=<?= $pessoa['id'] ?>">Editar</a> |
+                <a href="excluir.php?id=<?= $pessoa['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir esta pessoa?');">Excluir</a>
+            </td>
         </tr>
     <?php } ?>
 </table>
