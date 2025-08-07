@@ -14,6 +14,7 @@ $resultado = $conn->query($sql);
         <th>ID</th><th>Nome</th><th>Email</th><th>Idade</th><th>Cidade</th><th>Ações</th>
     </tr>
     <?php while ($pessoa = $resultado->fetch_assoc()) { ?>
+        
         <tr>
             <td><?= $pessoa['id'] ?></td>
             <td><?= $pessoa['nome'] ?></td>
@@ -21,6 +22,7 @@ $resultado = $conn->query($sql);
             <td><?= $pessoa['idade'] ?></td>
             <td><?= $pessoa['cidade'] ?></td>
             <td><a href="detalhe.php?id=<?= $pessoa['id'] ?>">Ver Detalhes</a></td>
+            
         </tr>
     <?php } ?>
 </table>
