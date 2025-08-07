@@ -24,6 +24,8 @@ $resultado = $conn->query($sql);
                 <a href="detalhe.php?id=<?= $pessoa['id'] ?>">Ver</a> |
                 <a href="editar.php?id=<?= $pessoa['id'] ?>">Editar</a> |
                 <a href="excluir.php?id=<?= $pessoa['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir esta pessoa?');">Excluir</a>
+                
+                
             </td>
         </tr>
     <?php } ?>
