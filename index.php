@@ -5,13 +5,17 @@ include "conexao.php";
 $sql = "SELECT * FROM pessoas";
 $resultado = $conn->query($sql);
 ?>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-<h2>Lista de Pessoas</h2>
-<a href="formulario.php">Cadastrar Nova Pessoa</a><br><br>
 
-<table border="1" cellpadding="8">
+<h2>ℒ𝒾𝓈𝓉𝒶 𝒹𝑒 𝒫𝑒𝓈𝓈𝑜𝒶𝓈</h2>
+<a href="formulario.php">𝙲𝚊𝚍𝚊𝚜𝚝𝚛𝚊𝚛 𝙽𝚘𝚟𝚊 𝙿𝚎𝚜𝚜𝚘𝚊</a><br><br>
+
+<table border="2" cellpadding="10">
     <tr>
-        <th>ID</th><th>Nome</th><th>Email</th><th>Idade</th><th>Cidade</th><th>Ações</th>
+        <th>ID</th><th>Nome</th><th>E-mail</th><th>Idade</th><th>Cidade</th><th>Ações</th>
     </tr>
     <?php while ($pessoa = $resultado->fetch_assoc()) { ?>
         <tr>
@@ -22,10 +26,12 @@ $resultado = $conn->query($sql);
             <td><?= $pessoa['cidade'] ?></td>
             <td>
                 <a href="detalhe.php?id=<?= $pessoa['id'] ?>">Ver</a> |
-                <a href="editar.php?id=<?= $pessoa['id'] ?>">Editar</a> |
-                <a href="excluir.php?id=<?= $pessoa['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir esta pessoa?');">Excluir</a>
-                
-                
+                <a href="editar.php?id=<?= $pessoa['id'] ?>">
+                    <img src="img/editar.png" width="20" alt="Editar">
+                </a> |
+                <a href="excluir.php?id=<?= $pessoa['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir esta pessoa?');">
+                    <img src="img/lixeira.png" width="20" alt="Excluir">
+                </a>
             </td>
         </tr>
     <?php } ?>

@@ -1,6 +1,7 @@
 <?php
 include "conexao.php";
 
+
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
 
@@ -20,13 +21,11 @@ if (isset($_GET['id'])) {
 ?>
 
 <h2>Editar Pessoa</h2>
-<form action="atualizar.php" method="post">
+<form action="editaratualizar.php" method="post">
     <input type="hidden" name="id" value="<?= $pessoa['id'] ?>">
-
     Nome: <input type="text" name="nome" value="<?= $pessoa['nome'] ?>"><br><br>
     Email: <input type="email" name="email" value="<?= $pessoa['email'] ?>"><br><br>
     Idade: <input type="number" name="idade" value="<?= $pessoa['idade'] ?>"><br><br>
     Cidade: <input type="text" name="cidade" value="<?= $pessoa['cidade'] ?>"><br><br>
-
     <input type="submit" value="Salvar Alterações">
 </form>

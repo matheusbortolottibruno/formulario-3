@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cadastrar Nova Pessoa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
 <?php
 include "conexao.php"; 
 
@@ -22,7 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<h2>Cadastrar Nova Pessoa</h2>
+<h2>𝗖𝗮𝗱𝗮𝘀𝘁𝗿𝗮𝗿 𝗡𝗼𝘃𝗮 𝗣𝗲𝘀𝘀𝗼𝗮</h2>
+
 <form method="POST">
     Nome: <input type="text" name="nome" required><br><br>
     Email: <input type="email" name="email" required><br><br>
