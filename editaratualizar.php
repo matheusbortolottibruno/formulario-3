@@ -9,20 +9,20 @@ if (isset($_POST['id'], $_POST['nome'], $_POST['email'], $_POST['idade'], $_POST
     $idade = intval($_POST['idade']);
     $cidade = $_POST['cidade'];
 
-    // Prepara a query de UPDATE (atualização)
+    // Prepara (atualização)
     $sql = "UPDATE pessoas SET nome = ?, email = ?, idade = ?, cidade = ? WHERE id = ?";
 
-    // Prepara e executa a query com segurança
+    // Prepara e executa  com segurança
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssisi", $nome, $email, $idade, $cidade, $id);
 
     if ($stmt->execute()) {
-        echo "✅ Pessoa atualizada com sucesso!<br>";
+        echo "Pessoa atualizada com sucesso!<br>";
         echo "<a href='index.php'>Voltar para a lista</a>";
     } else {
-        echo "❌ Erro ao atualizar: " . $stmt->error;
+        echo "Erro ao atualizar: " . $stmt->error;
     }
 } else {
-    echo "❌ Dados incompletos. Verifique o formulário.";
+    echo "Dados incompletos. Verifique o formulário.";
 }
 ?>
